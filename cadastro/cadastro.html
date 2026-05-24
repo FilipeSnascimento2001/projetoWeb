@@ -1,23 +1,67 @@
-<link rel="stylesheet" href="style.css">
-<section id="home"></section>
+<link rel="stylesheet" href="cadastro.css">
+<nav id="menu" class="menu">
+   <a href="../index.html">Home</a>
+   <a href="./precos.html">Preços</a>
+   <a href="../agendamento/agendamento.html">Agendamento</a>
+   <a href="contato.html">Contato</a>
+   
+</nav>
 
-<div class="bemvindo-container">
-  <div class="coluna-esquerda">
-    <h2>Bem-vindo</h2>
-    <p>A Barbearia <strong>Sr. Dan</strong> </p> 
-    <p> localizada no Capão Redondo </p> 
-    <p> São Paulo - SP </p>
-    <br>
-    <p class="endereco" id="fontAlt">📍 Rua João Machado de Oliveira, 55</p>
-    <p class="telefone" id="fontAlt">📞 (11) 91771-318</p>
-    <p id="fontAlt"> Seu melhor estilo é aqui.</p>
-  </div>
+<div class="container">
 
-  <div class="coluna-direita">
-    <img id="faixada" src="salao.png" alt="Barbearia Sr. Dan" class="imagem-barbearia">
-  </div>
+    <!-- ESQUERDA -->
+
+    <div class="lado-esquerdo">
+
+        <form class="formulario">
+
+            <h2 id="fontAlt">
+                Cadastro
+            </h2>
+
+            <input 
+                type="text"
+                name="nome"
+                placeholder="Digite seu nome"
+                required
+            >
+
+            <input 
+                type="email"
+                name="email"
+                placeholder="Digite seu email"
+                required
+            >
+
+            <input 
+                type="tel"
+                name="telefone"
+                placeholder="Informe seu Nº de celular"
+                required
+            >
+
+            <textarea
+                name="mensagem"
+                placeholder="Observações do cliente"
+                rows="5"
+            ></textarea>
+
+            <button type="submit">
+                Realizar Cadastro
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="clientes">
+
+    <h2 id="fontAlt">
+        Clientes Cadastrados
+    </h2>
+
+    <div id="listaClientes"></div>
+
 </div>
 
-
-
-
+<script src="../js/scripts.js"></script>
