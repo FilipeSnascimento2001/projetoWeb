@@ -12,6 +12,8 @@ let clientes = JSON.parse(
 
 function mostrarClientes(){
 
+    if(!listaClientes) return;
+
     listaClientes.innerHTML = "";
 
     clientes.forEach(function(cliente, index){
@@ -34,59 +36,45 @@ function mostrarClientes(){
 
 /* CADASTRAR */
 
-form.addEventListener("submit", function(event){
+if(form){
 
-    event.preventDefault();
+    form.addEventListener("submit", function(event){
 
-    const nome = document.querySelector(
-        'input[name="nome"]'
-    ).value;
+        event.preventDefault();
 
-    const email = document.querySelector(
-        'input[name="email"]'
-    ).value;
+        const nome = document.querySelector(
+            'input[name="nome"]'
+        ).value;
 
-    const telefone = document.querySelector(
-        'input[name="telefone"]'
-    ).value;
+        const email = document.querySelector(
+            'input[name="email"]'
+        ).value;
 
-    const mensagem = document.querySelector(
-        'textarea[name="mensagem"]'
-    ).value;
+        const senha = document.querySelector(
+            'input[name="senha"]'
+        ).value;
 
-    /* NOVO CLIENTE */
+        const novoCliente = {
 
-    const novoCliente = {
+            nome,
+            email,
+            senha
+        };
 
-        nome,
-        email,
-        telefone,
-        mensagem
-    };
+        clientes.push(novoCliente);
 
-    /* ADICIONA NO ARRAY */
+        localStorage.setItem(
+            "clientes",
+            JSON.stringify(clientes)
+        );
 
-    clientes.push(novoCliente);
+        alert("Cadastro realizado com sucesso!");
 
-    /* SALVA TODOS */
+        mostrarClientes();
 
-    localStorage.setItem(
-        "clientes",
-        JSON.stringify(clientes)
-    );
-
-    /* ALERTA */
-
-    alert("Cliente cadastrado com sucesso!");
-
-    /* MOSTRAR */
-
-    mostrarClientes();
-
-    /* LIMPAR */
-
-    form.reset();
-});
+        form.reset();
+    });
+}
 
 /* EXCLUIR */
 

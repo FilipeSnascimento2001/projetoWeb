@@ -61,22 +61,39 @@
   color: #d4af37;
 }
 
-.menu {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: #000;
+body{
+    margin:0;
+    font-family:'Segoe UI', Arial, sans-serif;
+    background:#f3f3f3;
+}
+
+/* MENU */
+
+.menu{
+
+    font-family:'Segoe UI', Arial, sans-serif;
+
+    color:#000;
+
     display:flex;
+
     justify-content:space-evenly;
+
     align-items:center;
+
     padding:20px 40px;
+
     background:#fff;
+
     border-radius:12px;
+
     box-shadow:0 4px 12px rgba(0,0,0,0.1);
+
     margin-bottom:30px;
-
-
 }
 
 .menu a{
+
     color:#000;
 
     text-decoration:none;
@@ -87,6 +104,7 @@
 }
 
 .menu a:hover{
+
     color:#d4af37;
 
     transform:scale(1.1);

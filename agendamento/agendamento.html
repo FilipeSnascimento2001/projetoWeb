@@ -1,81 +1,185 @@
 <link rel="stylesheet" href="./agendamento.css">
 
 <nav id="menu" class="menu">
+
    <a href="../index.html">Home</a>
+
    <a href="../precos/precos.html">Preços</a>
+
    <a href="./agendamento.html">Agendamento</a>
-   <a href="contato.html">Contato</a>
+
+   <a href="../cadastro/cadastro.html">Cadastro</a>
+
 </nav>
-<div class="container"> 
-<div class="lado-esquerdo">
-    <div class="central">
-        <form class="formulario">
+
+<div class="container">
+
+    <!-- LADO ESQUERDO -->
+
+    <div class="lado-esquerdo">
+
+        <div class="central">
+
+            <!-- FORMULARIO -->
+
+            <!-- FORMULARIO -->
+
+<form class="formulario">
 
     <h2>Agende seu atendimento</h2>
 
-    <input 
-        type="text"
-        name="nome"
-        placeholder="Digite seu nome"
-        required
-    >
+    <!-- HORARIOS DE FUNCIONAMENTO -->
 
-    <input 
-        type="text"
-        name="numero"
-        placeholder="Informe o seu Nº de Celular"
-        required
-    >
+    <div class="horario-agendamento">
 
-    <textarea
-        name="mensagem"
-        placeholder="Informe o cabelereiro de sua preferência.    "
-        rows="5"
-        required
-    ></textarea>
+        <h3>Horários disponíveis</h3>
 
-    <button type="submit">
-        Enviar Agendamento
-    </button>
+        <p>Terça-feira: 10:00 - 20:00</p>
 
-        </form>
-               <div class="social">
-                <!-- rede social -->
-          <h3 id="fontAlt">Siga-nos</h3>
-        <a href="https://www.instagram.com/daan_corrts/" target="_blank" class="social-link">
-  <i class="fab fa-instagram"></i>
-  <span>{{ '@daan_corrts' }}</span>
-</a>
-        </div>
+        <p>Quarta-feira: 10:00 - 20:00</p>
+
+        <p>Quinta-feira: 10:00 - 20:00</p>
+
+        <p>Sexta-feira: 10:00 - 20:00</p>
+
+        <p>Sábado: 09:00 - 18:00</p>
+
+        <p>Domingo: Fechado</p>
+
     </div>
-</div>
-<div class="lado-direito">
 
-        
- 
-        <!-- endereco -->
+    <!-- ESCOLHER DIA -->
+
+    <!-- ESCOLHER DIA -->
+
+<label>Escolha o dia</label>
+
+<select id="dia" onchange="mostrarHorarios()" required>
+
+    <option value="">Selecione</option>
+
+    <option value="terça">Terça-feira</option>
+
+    <option value="quarta">Quarta-feira</option>
+
+    <option value="quinta">Quinta-feira</option>
+
+    <option value="sexta">Sexta-feira</option>
+
+    <option value="sabado">Sábado</option>
+
+    <option value="domingo">Domingo</option>
+
+</select>
+
+<!-- WIDGET DE HORARIOS -->
+
+<div id="horarios" class="horarios-container"></div>
+
+<!-- HORARIO ESCOLHIDO -->
+
+<input 
+    type="hidden"
+    id="horarioSelecionado"
+    name="horarioSelecionado"
+>
+
+<!-- BOTAO -->
+
+<button type="submit">
+
+    Confirmar Agendamento
+
+</button>
+
+</form>
+
+            <!-- REDE SOCIAL -->
+
+            <div class="social">
+
+                <h3 id="fontAlt">Siga-nos</h3>
+
+                <a href="https://www.instagram.com/daan_corrts/" target="_blank" class="social-link">
+
+                    <span>@daan_corrts</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LADO DIREITO -->
+
+    <div class="lado-direito">
+
+        <!-- ENDEREÇO -->
+
         <div class="endereco">
-          <h3>Endereço</h3>
-          <p>Rua João Machado de Oliveira, 55 - Jardim Comercial</p>
 
-          <iframe 
-            src="https://www.google.com/maps?q=R.+João+Machado+de+Oliveira,+55,+Jardim+Comercial,+São+Paulo&output=embed"
-            width="100%" 
-            height="400"
-            style="border:0;"
-            loading="lazy">
-          </iframe>
+            <h3>Endereço</h3>
+
+            <p>Rua João Machado de Oliveira, 55 - Jardim Comercial</p>
+
+            <iframe 
+                src="https://www.google.com/maps?q=R.+João+Machado+de+Oliveira,+55,+Jardim+Comercial,+São+Paulo&output=embed"
+                width="100%" 
+                height="300"
+                style="border:0;"
+                loading="lazy">
+            </iframe>
+
         </div>
 
-        <!-- horario -->
-        <div class="horario">
-          <h3>Horário</h3>
-          <p>Segunda: Fechado</p>
-          <p>Ter - Sex: 09h às 19h</p>
-          <p>Sábado - Domingo: 09h às 17h</p>
-    
+        <!-- PREÇOS -->
 
-        </div>  
+        <div class="precos-container">
+
+            <h2>Nossos Preços</h2>
+
+            <div class="tabela">
+
+                <div class="dias">
+
+                    <h3>De terça a quarta-feira</h3>
+
+                    <ul>
+
+                        <li>Corte — R$35</li>
+
+                        <li>Barba — R$20</li>
+
+                        <li>Corte + Barba — R$55</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="dias">
+
+                    <h3>De quinta-feira a domingo</h3>
+
+                    <ul>
+
+                        <li>Corte — R$45</li>
+
+                        <li>Barba — R$30</li>
+
+                        <li>Corte + Barba — R$65</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-  </div>
-   </div>
+
+</div>
+
+<script src="../js/agendamento.js"></script>

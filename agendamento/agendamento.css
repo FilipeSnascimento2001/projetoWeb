@@ -1,13 +1,19 @@
 body{
     margin:0;
     font-family:'Segoe UI', Arial, sans-serif;
+    background:#f3f3f3;
 }
 
 /* MENU */
+
 .menu{
+
     color:#000;
+
     display:flex;
+
     justify-content:space-evenly;
+
     align-items:center;
 
     padding:20px 40px;
@@ -21,76 +27,87 @@ body{
     margin-bottom:30px;
 }
 
-#fontAlt {
-
-  font-family: "Segoe Script", "Brush Script MT", cursive;
-  font-size: 40px;
-  transition: 4.5s;
-}
-#fontAlt:hover {
-  color:#d4af37;
-  transform: scale(1.1);
-}
-.horario {
-    padding-left: 20px;
-    margin-top: 10px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px #000;
-}
-
-
-
-
 .menu a{
+
     color:#000;
+
     text-decoration:none;
+
     font-size:1.1rem;
+
     transition:0.3s;
 }
 
 .menu a:hover{
+
     color:#d4af37;
+
     transform:scale(1.1);
 }
 
-
 /* CONTAINER PRINCIPAL */
+
 .container{
-    display:flex;
-
-    min-height:80vh;
-
-    padding:20px;
-}
-
-/* ESQUERDA = FORM */
-.lado-esquerdo{
-    width:40%;
 
     display:flex;
+
     justify-content:center;
-    align-items:center;
+
+    align-items:flex-start;
+
+    gap:30px;
+
+    padding:30px;
+
+    flex-wrap:wrap;
 }
 
-/* DIREITA = TEXTO / IMAGEM */
+/* LADO ESQUERDO */
+
+.lado-esquerdo{
+
+    width:420px;
+}
+
+/* LADO DIREITO */
+
 .lado-direito{
-    width:60%;
+
+    width:700px;
 
     display:flex;
+
     flex-direction:column;
 
-    justify-content:center;
-
-    padding:60px;
+    gap:25px;
 }
 
+/* TITULO */
 
-/* FORM */
+#fontAlt{
+
+    font-family:'Segoe UI', Arial, sans-serif;
+
+    font-size:40px;
+
+    transition:0.5s;
+
+    text-align:center;
+}
+
+#fontAlt:hover{
+
+    color:#d4af37;
+
+    transform:scale(1.05);
+}
+
+/* FORMULARIO */
 
 .formulario{
-    width:350px;
 
     display:flex;
+
     flex-direction:column;
 
     gap:15px;
@@ -99,17 +116,99 @@ body{
 
     background:white;
 
-    border-radius:12px;
+    border-radius:15px;
 
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
 
 .formulario h2{
+
     text-align:center;
+
+    color:#d4af37;
+
+    font-size:38px;
+}
+
+/* HORARIOS */
+
+.horario-agendamento{
+
+    background:#f8f8f8;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+
     margin-bottom:10px;
 }
 
-.formulario input,
+.horario-agendamento h3{
+
+    color:#d4af37;
+
+    margin-bottom:10px;
+}
+
+.horario-agendamento p{
+
+    margin:6px 0;
+
+    font-size:15px;
+}
+
+/* LABEL */
+
+.formulario label{
+
+    font-weight:bold;
+
+    color:#333;
+}
+
+/* SELECT */
+
+select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:15px;
+
+    background:#fafafa;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    color:#333;
+}
+
+select:hover{
+
+    border-color:#d4af37;
+}
+
+select:focus{
+
+    border-color:#007bff;
+
+    box-shadow:0 0 8px rgba(0,123,255,0.2);
+
+    background:white;
+}
+
+/* TEXTAREA */
+
 .formulario textarea{
 
     padding:12px;
@@ -119,12 +218,22 @@ body{
     border-radius:8px;
 
     outline:none;
+
+    font-size:15px;
+
+    transition:0.3s;
+
+    resize:none;
 }
 
-.formulario input:focus,
 .formulario textarea:focus{
+
     border-color:#007bff;
+
+    box-shadow:0 0 8px rgba(0,123,255,0.2);
 }
+
+/* BOTAO PRINCIPAL */
 
 .formulario button{
 
@@ -140,9 +249,236 @@ body{
 
     cursor:pointer;
 
+    font-size:15px;
+
     transition:.3s;
 }
 
 .formulario button:hover{
+
     transform:scale(1.02);
+
+    background:#0066d6;
+}
+
+/* HORARIOS DISPONIVEIS */
+
+.horarios-container{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:10px;
+}
+
+/* BOTAO DOS HORARIOS */
+
+.horario-btn{
+
+    padding:10px 15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#1c1c1c;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    font-size:14px;
+}
+
+.horario-btn:hover{
+
+    background:#d4af37;
+
+    color:black;
+
+    transform:scale(1.05);
+}
+
+/* HORARIO SELECIONADO */
+
+.horario-btn.ativo{
+
+    background:#007bff;
+
+    color:white;
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 10px rgba(0,123,255,0.4);
+}
+
+/* FECHADO */
+
+.fechado{
+
+    color:red;
+
+    font-weight:bold;
+}
+
+/* SOCIAL */
+
+.social{
+
+    margin-top:20px;
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+
+    text-align:center;
+}
+
+.social-link{
+
+    text-decoration:none;
+
+    color:#000;
+
+    font-size:20px;
+
+    transition:0.3s;
+}
+
+.social-link:hover{
+
+    color:#d4af37;
+}
+
+/* ENDEREÇO */
+
+.endereco{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.endereco h3{
+
+    color:#d4af37;
+
+    margin-bottom:10px;
+}
+
+/* PREÇOS */
+
+.precos-container{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+
+    text-align:center;
+}
+
+.precos-container h2{
+
+    color:#d4af37;
+
+    margin-bottom:25px;
+}
+
+.tabela{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+/* CARDS */
+
+.dias{
+
+    background:#1c1c1c;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    width:260px;
+
+    color:white;
+
+    transition:0.3s;
+}
+
+.dias:hover{
+
+    transform:translateY(-5px);
+}
+
+.dias h3{
+
+    color:#d4af37;
+}
+
+.dias ul{
+
+    list-style:none;
+
+    padding:0;
+}
+
+.dias li{
+
+    margin:10px 0;
+}
+
+.dias li::before{
+
+    content:"✂ ";
+
+    color:#d4af37;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+
+    .container{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .lado-esquerdo,
+    .lado-direito{
+
+        width:100%;
+    }
+
+    .tabela{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
 }

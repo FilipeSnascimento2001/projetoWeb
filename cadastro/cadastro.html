@@ -1,22 +1,22 @@
 <link rel="stylesheet" href="cadastro.css">
+
 <nav id="menu" class="menu">
    <a href="../index.html">Home</a>
-   <a href="./precos.html">Preços</a>
+   <a href="../precos/precos.html">Preços</a>
    <a href="../agendamento/agendamento.html">Agendamento</a>
-   <a href="contato.html">Contato</a>
-   
+   <a href="../cadastro/cadastro.html">Cadastro</a>
 </nav>
 
 <div class="container">
 
-    <!-- ESQUERDA -->
+    <!-- CADASTRO -->
 
     <div class="lado-esquerdo">
 
         <form class="formulario">
 
             <h2 id="fontAlt">
-                Cadastro
+                Cadastre-se
             </h2>
 
             <input 
@@ -40,12 +40,6 @@
                 required
             >
 
-            <textarea
-                name="mensagem"
-                placeholder="Observações do cliente"
-                rows="5"
-            ></textarea>
-
             <button type="submit">
                 Realizar Cadastro
             </button>
@@ -54,13 +48,37 @@
 
     </div>
 
-    <div class="clientes">
+    <!-- LOGIN -->
 
-    <h2 id="fontAlt">
-        Clientes Cadastrados
-    </h2>
+    <div class="lado-direito">
 
-    <div id="listaClientes"></div>
+        <form class="formulario">
+
+            <h2 id="fontAlt">
+                Login
+            </h2>
+
+            <input 
+                type="email"
+                name="loginEmail"
+                placeholder="Digite seu email"
+                required
+            >
+
+            <input 
+                type="password"
+                name="senha"
+                placeholder="Digite sua senha"
+                required
+            >
+
+            <button type="submit">
+                Entrar
+            </button>
+
+        </form>
+
+    </div>
 
 </div>
 

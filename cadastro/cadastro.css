@@ -53,55 +53,56 @@ body{
 
     display:flex;
 
-    justify-content:center;
+    justify-content:space-evenly;
 
     align-items:center;
 
     min-height:80vh;
 
     padding:20px;
+
+    gap:50px;
 }
 
 /* LADO ESQUERDO */
 
 .lado-esquerdo{
 
-    width:100%;
+    width:50%;
 
     display:flex;
 
-    justify-content:center;
+    justify-content:flex-end;
 
     align-items:center;
 }
 
-/* TITULO */
+/* LADO DIREITO */
 
-#fontAlt{
+.lado-direito{
 
-    font-family:"Segoe Script", "Brush Script MT", cursive;
+    width:50%;
 
-    font-size:45px;
+    display:flex;
 
-    transition:0.5s;
+    justify-content:flex-start;
+
+    align-items:center;
 }
 
-#fontAlt:hover{
-
-    color:#d4af37;
-
-    transform:scale(1.05);
-}
-
-/* FORMULARIO */
+/* FORMULARIOS */
 
 .formulario{
 
     width:350px;
 
+    height:500px;
+
     display:flex;
 
     flex-direction:column;
+
+    justify-content:center;
 
     gap:15px;
 
@@ -162,13 +163,6 @@ body{
     background:white;
 }
 
-/* TEXTAREA */
-
-.formulario textarea{
-
-    resize:none;
-}
-
 /* BOTAO */
 
 .formulario button{
@@ -197,107 +191,12 @@ body{
     background:#0066d6;
 }
 
-/* CLIENTES */
-
-.clientes{
-
-    width:90%;
-
-    margin:40px auto;
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:20px;
-
-    background:#fff;
-
-    padding:40px;
-
-    border-radius:15px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* CARD CLIENTE */
-
-.cliente{
-
-    width:220px;
-
-    padding:20px;
-
-    border-radius:12px;
-
-    background:#f8f8f8;
-
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
-
-    text-align:center;
-
-    transition:0.3s;
-}
-
-.cliente:hover{
-
-    transform:scale(1.05);
-}
-
-/* NOME */
-
-.cliente h3{
-
-    color:#d4af37;
-
-    font-size:1.5rem;
-
-    font-family:"Segoe Script", "Brush Script MT", cursive;
-}
-
-/* BOTAO EXCLUIR */
-
-.cliente button{
-
-    margin-top:15px;
-
-    padding:10px 15px;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#dc3545;
-
-    color:white;
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-.cliente button:hover{
-
-    background:#b02a37;
-
-    transform:scale(1.03);
-}
-
 /* RESPONSIVO */
 
 @media(max-width:900px){
 
-    .menu{
+    .container{
 
-        flex-wrap:wrap;
-
-        gap:15px;
-    }
-
-    .formulario{
-
-        width:90%;
+        flex-direction:column;
     }
 }
