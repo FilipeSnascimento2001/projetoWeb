@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Perfil — Barbearia Sr. Dan</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+  <!-- MENU -->
+  <nav id="menu" class="menu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../precos/precos.html">💰 Preços</a>
+    <a href="../avaliacoes/avaliacoes.html">⭐ Avaliações</a>
+    <a href="../agendamento/agendamento.html">📅 Agendamento</a>
+    <a href="../cadastro/cadastro.html">📝 Cadastro</a>
+    <a href="perfil.html" class="ativo">👤 Perfil</a>
+    <a href="#" onclick="logout()" style="color:#e74c3c;">🚪 Sair</a>
+  </nav>
+
+  <div class="perfil-container">
+
+    <!-- CABEÇALHO DO PERFIL -->
+    <div class="perfil-header">
+      <div class="avatar">
+        <span id="avatarInicial">U</span>
+      </div>
+      <div class="perfil-info">
+        <h1 id="nomePerfil">Usuário</h1>
+        <p id="emailPerfil">email@email.com</p>
+        <span class="nivel-fidelidade" id="nivelFidelidade">🌟 Cliente Novo</span>
+      </div>
+    </div>
+
+    <!-- CARDS DE STATUS -->
+    <div class="status-cards">
+      <div class="status-card">
+        <span class="status-icon">✂️</span>
+        <h3 id="totalCortes">0</h3>
+        <p>Cortes realizados</p>
+      </div>
+      <div class="status-card">
+        <span class="status-icon">⭐</span>
+        <h3 id="pontosFidelidade">0</h3>
+        <p>Pontos de fidelidade</p>
+      </div>
+      <div class="status-card destaque">
+        <span class="status-icon">🎁</span>
+        <h3 id="cortesParaPremio">5</h3>
+        <p>Cortes para o prêmio</p>
+      </div>
+    </div>
+
+    <!-- BARRA DE PROGRESSO FIDELIDADE -->
+    <div class="fidelidade-section">
+      <h2>🌟 Programa de Fidelidade</h2>
+      <p>A cada <strong>5 cortes</strong>, o próximo é <strong>GRÁTIS</strong>!</p>
+      
+      <div class="progresso-container">
+        <div class="progresso-barra" id="barraProgresso">
+          <div class="progresso-preenchido" id="progressoPreenchido"></div>
+        </div>
+        <div class="selos" id="selosFidelidade"></div>
+      </div>
+    </div>
+
+    <!-- EDITAR PERFIL -->
+    <div class="secao-perfil">
+      <h2>✏️ Editar Perfil</h2>
+      <form id="formEditarPerfil">
+        <div class="campo">
+          <label for="editNome">Nome:</label>
+          <input type="text" id="editNome" placeholder="Seu nome" required>
+        </div>
+        <div class="campo">
+          <label for="editEmail">Email:</label>
+          <input type="email" id="editEmail" placeholder="Seu email" required>
+        </div>
+        <div class="campo">
+          <label for="editTelefone">Telefone:</label>
+          <input type="tel" id="editTelefone" placeholder="(11) 99999-9999">
+        </div>
+        <div class="campo">
+          <label for="editSenha">Nova Senha:</label>
+          <input type="password" id="editSenha" placeholder="Deixe em branco para não alterar">
+        </div>
+        <div id="msgPerfil" class="msg-feedback"></div>
+        <button type="submit">💾 Salvar Alterações</button>
+      </form>
+    </div>
+
+    <!-- HISTÓRICO DE AGENDAMENTOS -->
+    <div class="secao-perfil">
+      <h2>📋 Meu Histórico</h2>
+      <div class="filtros">
+        <button onclick="filtrarHistorico('todos')" class="btn-filtro ativo">Todos</button>
+        <button onclick="filtrarHistorico('pendente')" class="btn-filtro">Pendentes</button>
+        <button onclick="filtrarHistorico('concluido')" class="btn-filtro">Concluídos</button>
+      </div>
+      <div id="historicoAgendamentos">
+        <p style="color:#888;">Nenhum agendamento encontrado.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2026 Barbearia Sr. Dan — Todos os direitos reservados</p>
+  </footer>
+
+  <script src="../js/perfil.js"></script>
+</body>
+</html>

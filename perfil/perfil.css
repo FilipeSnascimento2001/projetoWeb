@@ -1,0 +1,435 @@
+/* ============================================
+   P E R F I L   -   P R E M I U M
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1c1c1c 50%, #0f0f0f 100%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.perfil-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   HEADER DO PERFIL
+   ============================================ */
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #d4af37, #b8942e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1c1c1c;
+  flex-shrink: 0;
+}
+
+.perfil-info h1 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.perfil-info p {
+  color: #aaa;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.nivel-fidelidade {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.nivel-novo {
+  background: #333;
+  color: #aaa;
+}
+
+.nivel-bronze {
+  background: #cd7f32;
+  color: #fff;
+}
+
+.nivel-prata {
+  background: #c0c0c0;
+  color: #1c1c1c;
+}
+
+.nivel-ouro {
+  background: linear-gradient(135deg, #d4af37, #ffd700);
+  color: #1c1c1c;
+}
+
+.nivel-diamante {
+  background: linear-gradient(135deg, #b9f2ff, #e0f7fa);
+  color: #1c1c1c;
+  animation: brilho 2s infinite;
+}
+
+@keyframes brilho {
+  0%, 100% { box-shadow: 0 0 10px rgba(212,175,55,0.5); }
+  50% { box-shadow: 0 0 25px rgba(212,175,55,0.9); }
+}
+
+/* ============================================
+   CARDS DE STATUS
+   ============================================ */
+.status-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.status-card {
+  flex: 1;
+  min-width: 150px;
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.status-card:hover {
+  transform: translateY(-3px);
+  border-color: #d4af37;
+}
+
+.status-card.destaque {
+  border-color: #d4af37;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+}
+
+.status-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.status-card h3 {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 5px;
+}
+
+.status-card p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   FIDELIDADE
+   ============================================ */
+.fidelidade-section {
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.fidelidade-section h2 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.fidelidade-section p {
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.fidelidade-section strong {
+  color: #d4af37;
+}
+
+/* Barra de progresso */
+.progresso-container {
+  margin-bottom: 20px;
+}
+
+.progresso-barra {
+  width: 100%;
+  height: 20px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progresso-preenchido {
+  height: 100%;
+  background: linear-gradient(90deg, #d4af37, #ffd700);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+/* Selos */
+.selos {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.selo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s;
+}
+
+.selo-preenchido {
+  background: linear-gradient(135deg, #d4af37, #ffd700);
+  box-shadow: 0 0 15px rgba(212,175,55,0.5);
+}
+
+.selo-vazio {
+  background: #1a1a1a;
+  border: 2px dashed #333;
+  opacity: 0.5;
+}
+
+/* ============================================
+   SEÇÕES
+   ============================================ */
+.secao-perfil {
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.secao-perfil h2 {
+  color: #d4af37;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #d4af37;
+}
+
+/* ============================================
+   FORMULÁRIO
+   ============================================ */
+.campo {
+  margin-bottom: 18px;
+}
+
+.campo label {
+  display: block;
+  color: #ccc;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  padding: 14px;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+}
+
+.secao-perfil button[type="submit"] {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #d4af37, #c49b2a);
+  color: #1c1c1c;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.secao-perfil button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+}
+
+/* ============================================
+   FILTROS
+   ============================================ */
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-filtro {
+  padding: 10px 22px;
+  background: #1a1a1a;
+  color: #ccc;
+  border: 1px solid #333;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-filtro.ativo,
+.btn-filtro:hover {
+  background: #d4af37;
+  color: #1c1c1c;
+  border-color: #d4af37;
+}
+
+/* ============================================
+   HISTÓRICO
+   ============================================ */
+#historicoAgendamentos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-historico {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.card-historico:hover {
+  border-color: #d4af37;
+}
+
+.card-historico.concluido {
+  opacity: 0.6;
+}
+
+.card-historico .info p {
+  margin: 3px 0;
+  font-size: 0.95rem;
+}
+
+.status-agendamento {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.status-pendente {
+  background: rgba(212,175,55,0.2);
+  color: #d4af37;
+  border: 1px solid #d4af37;
+}
+
+.status-concluido {
+  background: rgba(39,174,96,0.2);
+  color: #27ae60;
+  border: 1px solid #27ae60;
+}
+
+/* ============================================
+   MENSAGENS
+   ============================================ */
+.msg-feedback {
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+  display: none;
+}
+
+.msg-sucesso {
+  background: rgba(39,174,96,0.2) !important;
+  color: #2ecc71 !important;
+  border: 1px solid #27ae60 !important;
+  display: block !important;
+}
+
+.msg-erro {
+  background: rgba(231,76,60,0.2) !important;
+  color: #e74c3c !important;
+  border: 1px solid #c0392b !important;
+  display: block !important;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 600px) {
+  .perfil-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .status-cards {
+    flex-direction: column;
+  }
+
+  .status-card {
+    min-width: 100%;
+  }
+}

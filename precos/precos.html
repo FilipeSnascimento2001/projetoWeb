@@ -1,33 +1,65 @@
-<link rel="stylesheet" href="precos.css">
-<nav id="menu" class="menu">
-   <a href="../index.html">Home</a>
-   <a href="./precos.html">Preços</a>
-   <a href="../agendamento/agendamento.html">Agendamento</a>
-   <a href="../cadastro/cadastro.html">Cadastro</a>
-   
-   
-</nav>
-<div class="precos-container">
-  <h2>Nossos Preços</h2>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preços — Barbearia Sr. Dan</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="precos.css">
+</head>
+<body>
 
-  <div class="tabela">
-    <div class="dias">
-      <h3>De terça a quarta-feira</h3>
-      <ul>
-        <li>Corte — R$35</li>
-        <li>Barba — R$20</li>
-        <li>Corte + Barba — R$55</li>
-      </ul>
+  <!-- ============================================
+       MENU DE NAVEGAÇÃO
+       ============================================ -->
+  <nav id="menu" class="menu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="precos.html" class="ativo">💰 Preços</a>
+    <a href="../avaliacoes/avaliacoes.html">⭐ Avaliações</a>
+    <a href="../agendamento/agendamento.html">📅 Agendamento</a>
+    <a href="../cadastro/cadastro.html">📝 Cadastro</a>
+    <a href="../perfil/perfil.html">👤 Perfil</a>
+    
+  </nav>
+
+  <!-- ============================================
+       TABELA DE PREÇOS
+       ============================================ -->
+  <div class="precos-container">
+    <h2>💰 Nossos Preços</h2>
+
+    <div class="tabela">
+      <!-- Terça a Quarta -->
+      <div class="dias">
+        <h3>📅 Terça a Quarta-feira</h3>
+        <ul>
+          <li>Corte — <strong>R$35</strong></li>
+          <li>Barba — <strong>R$20</strong></li>
+          <li>Corte + Barba — <strong>R$55</strong></li>
+        </ul>
+      </div>
+
+      <!-- Quinta a Domingo -->
+      <div class="dias destaque">
+        <h3>📅 Quinta-feira a Domingo</h3>
+        <ul>
+          <li>Corte — <strong>R$45</strong></li>
+          <li>Barba — <strong>R$30</strong></li>
+          <li>Corte + Barba — <strong>R$65</strong></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="dias">
-      <h3>De quinta-feira a domingo</h3>
-      <ul>
-        <li>Corte — R$45</li>
-        <li>Barba — R$30</li>
-        <li>Corte + Barba — R$65</li>
-      </ul>
-    </div>
+    <!-- Botão para agendar -->
+    <a href="../agendamento/agendamento.html" class="btn-agendar">✂️ Agendar Agora</a>
   </div>
-</div>
-<router-outlet></router-outlet>
+
+  <!-- ============================================
+       RODAPÉ
+       ============================================ -->
+  <footer class="rodape">
+    <p>&copy; 2026 Barbearia Sr. Dan — Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

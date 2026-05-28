@@ -1,0 +1,361 @@
+/* ============================================
+   A V A L I A Ç Õ E S   -   P R E M I U M
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1c1c1c 50%, #0f0f0f 100%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.avaliacoes-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header-avaliacoes {
+  text-align: center;
+  margin-bottom: 40px;
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.header-avaliacoes h1 {
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 20px;
+}
+
+.media-geral {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.estrelas-grandes {
+  font-size: 2.5rem;
+  color: #d4af37;
+  letter-spacing: 5px;
+}
+
+.nota-media {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #d4af37;
+}
+
+.total-avaliacoes {
+  color: #888;
+  font-size: 1rem;
+}
+
+/* ============================================
+   SEÇÃO AVALIAR
+   ============================================ */
+.secao-avaliar {
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.secao-avaliar h2 {
+  color: #d4af37;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #d4af37;
+}
+
+/* Estrelas selecionáveis */
+.estrelas-selecao {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.estrela {
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.estrela:hover {
+  color: #d4af37;
+  transform: scale(1.2);
+}
+
+.estrela.ativa {
+  color: #d4af37;
+  text-shadow: 0 0 20px rgba(212,175,55,0.5);
+}
+
+/* Textarea */
+.secao-avaliar textarea {
+  width: 100%;
+  padding: 15px;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  resize: vertical;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.secao-avaliar textarea:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+}
+
+/* Botão */
+.secao-avaliar button[type="submit"] {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #d4af37, #c49b2a);
+  color: #1c1c1c;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+
+.secao-avaliar button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+}
+
+.secao-avaliar button[type="submit"]:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ============================================
+   SEÇÃO AVALIAÇÕES
+   ============================================ */
+.secao-avaliacoes {
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.secao-avaliacoes h2 {
+  color: #d4af37;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #d4af37;
+}
+
+/* Filtros */
+.filtros-avaliacoes {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-filtro {
+  padding: 10px 22px;
+  background: #1a1a1a;
+  color: #ccc;
+  border: 1px solid #333;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-filtro.ativo,
+.btn-filtro:hover {
+  background: #d4af37;
+  color: #1c1c1c;
+  border-color: #d4af37;
+}
+
+/* ============================================
+   GRID AVALIAÇÕES
+   ============================================ */
+.grid-avaliacoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card avaliação */
+.card-avaliacao {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.card-avaliacao:hover {
+  border-color: #d4af37;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card-avaliacao .estrelas-card {
+  color: #d4af37;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+}
+
+.card-avaliacao .nome-cliente {
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.card-avaliacao .mensagem {
+  color: #ddd;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.card-avaliacao .data-avaliacao {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+/* Botão excluir (admin) */
+.btn-excluir-avaliacao {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(231,76,60,0.2);
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+
+.btn-excluir-avaliacao:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+/* ============================================
+   MENSAGENS
+   ============================================ */
+.msg-feedback {
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  margin: 10px 0;
+  display: none;
+}
+
+.msg-sucesso {
+  background: rgba(39,174,96,0.2) !important;
+  color: #2ecc71 !important;
+  border: 1px solid #27ae60 !important;
+  display: block !important;
+}
+
+.msg-erro {
+  background: rgba(231,76,60,0.2) !important;
+  color: #e74c3c !important;
+  border: 1px solid #c0392b !important;
+  display: block !important;
+}
+
+/* ============================================
+   LOGIN NECESSÁRIO
+   ============================================ */
+.sem-login {
+  text-align: center;
+  padding: 30px;
+  background: rgba(212,175,55,0.1);
+  border: 1px dashed #d4af37;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.sem-login a {
+  color: #d4af37;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sem-login a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 650px) {
+  .grid-avaliacoes {
+    grid-template-columns: 1fr;
+  }
+
+  .header-avaliacoes h1 {
+    font-size: 1.8rem;
+  }
+
+  .estrelas-grandes {
+    font-size: 1.8rem;
+  }
+
+  .nota-media {
+    font-size: 2.2rem;
+  }
+
+  .estrela {
+    font-size: 2.2rem;
+  }
+}

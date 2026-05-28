@@ -1,114 +1,190 @@
+/* ============================================
+   R E S E T   G L O B A L
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1c1c1c 50%, #0f0f0f 100%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ============================================
+   M E N U   P R E M I U M
+   ============================================ */
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 30px;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #d4af37;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.menu a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.menu a:hover {
+  color: #1c1c1c;
+  background: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.menu a.ativo {
+  color: #1c1c1c;
+  background: #d4af37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+/* ============================================
+   R O D A P É   P R E M I U M
+   ============================================ */
+.rodape {
+  text-align: center;
+  padding: 25px;
+  margin-top: 50px;
+  background: rgba(26, 26, 26, 0.95);
+  border-top: 2px solid #d4af37;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   S E Ç Ã O   B E M - V I N D O
+   ============================================ */
+#home {
+  padding: 20px;
+}
+
 .bemvindo-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* antes estava center */
-  background-color: #fff;
-  color: #333;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', Arial, sans-serif;
+  align-items: center;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 50px;
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  gap: 40px;
 }
-#fontAlt {
 
-  font-family: 'Segoe UI', Arial, sans-serif, cursive;
-  font-size: 50px;
-  transition: 4.5s;
-}
-#fontAlt:hover {
-  color:#d4af37;
-  transform: scale(1.1);
-}
 .coluna-esquerda {
-  width: 45%;
+  flex: 1;
 }
 
 .coluna-esquerda h2 {
-  font-size: 4rem;
-  color: #d4af37; /* dourado */
+  font-size: 3rem;
+  color: #d4af37;
   margin-bottom: 15px;
-  border-bottom: 2px solid #d4af37;
-  display: inline-block;
-  padding-bottom: 5px;
+  position: relative;
+}
+
+.coluna-esquerda h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #d4af37;
+  margin-top: 10px;
+  border-radius: 2px;
 }
 
 .coluna-esquerda p {
-  margin: 15px 0;
-  font-size: 3rem; /* texto principal menor e mais equilibrado */
-  color: #000;     /* letras pretas */
+  margin: 10px 0;
+  font-size: 1.6rem;
+  color: #ddd;
 }
 
-.endereco {
-  font-family: 'Georgia', serif !important;
+.coluna-esquerda strong {
+  color: #d4af37;
+}
+
+.endereco,
+.telefone,
+.slogan {
   font-size: 1rem !important;
-  color: #000 !important;
+  color: #aaa !important;
+  margin-top: 15px !important;
 }
 
-.telefone {
-  font-family: 'Courier New', monospace !important;
-  font-size: 1rem !important;
-  color: #000 !important;
+.slogan {
+  font-style: italic;
+  color: #d4af37 !important;
+  font-size: 1.1rem !important;
+  margin-top: 25px !important;
 }
-
 
 .coluna-direita {
-  width: 42%;
+  flex: 1;
   text-align: center;
-  align-self: center; 
 }
 
 .imagem-barbearia {
-  max-width: 75%;
-  border-radius: 10px;
+  max-width: 100%;
+  border-radius: 15px;
   border: 2px solid #d4af37;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  transition: transform 0.3s ease;
 }
 
-body{
-    margin: 0px;
-    font-family:'Segoe UI', Arial, sans-serif;
-    background:#f3f3f3;
+.imagem-barbearia:hover {
+  transform: scale(1.02);
 }
 
-/* MENU */
+/* ============================================
+   R E S P O N S I V I D A D E
+   ============================================ */
+@media (max-width: 900px) {
+  .menu {
+    gap: 5px;
+    padding: 12px 15px;
+  }
 
-.menu{
+  .menu a {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
 
-    font-family:'Segoe UI', Arial, sans-serif;
+  .bemvindo-container {
+    flex-direction: column;
+    padding: 30px 20px;
+    text-align: center;
+  }
 
-    color:#000;
+  .coluna-esquerda h2 {
+    font-size: 2.2rem;
+  }
 
-    display:flex;
+  .coluna-esquerda p {
+    font-size: 1.2rem;
+  }
 
-    justify-content:space-evenly;
-
-    align-items:center;
-
-    padding:20px 40px;
-
-    background:#fff;
-
-    border-radius:12px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-
-   margin-bottom:30px;
-}
-
-.menu a{
-
-    color:#000;
-
-    text-decoration:none;
-
-    font-size:1.1rem;
-
-    transition:0.3s;
-}
-
-.menu a:hover{
-
-    color:#d4af37;
-
-    transform:scale(1.1);
+  .coluna-esquerda h2::after {
+    margin: 10px auto 0;
+  }
 }

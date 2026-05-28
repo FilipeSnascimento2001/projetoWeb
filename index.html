@@ -1,29 +1,81 @@
-<link rel="stylesheet" href="./css/styles.css">
-<section id="home"></section>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbearia Sr. Dan</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
 
-<nav id="menu" class="menu">
-   <a href="index.html">Home</a>
-   <a href="./precos/precos.html">Preços</a>
-   <a href="./agendamento/agendamento.html">Agendamento</a>
-   <a href="./cadastro/cadastro.html">Cadastro</a>
-</nav>
+  <!-- ============================================
+       MENU DE NAVEGAÇÃO
+       ============================================ -->
+  <nav id="menu" class="menu">
+    <a href="index.html">🏠 Home</a>
+    <a href="./precos/precos.html">💰 Preços</a>
+    <a href="../avaliacoes/avaliacoes.html">⭐ Avaliações</a>
+    <a href="./agendamento/agendamento.html">📅 Agendamento</a>
+    <a href="./cadastro/cadastro.html">📝 Cadastro</a>
+    <a href="../perfil/perfil.html">👤 Perfil</a>
+  </nav>
 
-<div class="bemvindo-container">
-  <div class="coluna-esquerda">
-    <h2>Bem-vindo</h2>
-    <p>A Barbearia <strong>Sr. Dan</strong> </p> 
-    <p> localizada no Capão Redondo </p> 
-    <p> São Paulo - SP </p>
-    <br>
-    <p class="endereco" id="fontAlt">📍 Rua João Machado de Oliveira, 55</p>
-    <p class="telefone" id="fontAlt">📞 (11) 91771-318</p>
-    <p id="fontAlt"> Seu melhor estilo é aqui.</p>
-  </div>
+  <!-- ============================================
+       SEÇÃO BEM-VINDO
+       ============================================ -->
+  <section id="home">
+    <div class="bemvindo-container">
+      
+      <!-- Coluna Esquerda (texto) -->
+      <div class="coluna-esquerda">
+        <h2>Bem-vindo</h2>
+        <p>A Barbearia <strong>Sr. Dan</strong></p>
+        <p>Localizada no Capão Redondo</p>
+        <p>São Paulo - SP</p>
+        <br>
+        <!-- ✅ Classes substituindo IDs -->
+        <p class="endereco font-alt">📍 Rua João Machado de Oliveira, 55</p>
+        <p class="telefone font-alt">📞 (11) 91771-318</p>
+        <p class="slogan font-alt">Seu melhor estilo é aqui.</p>
+      </div>
 
-  <div class="coluna-direita">
-    <img id="faixada" src="./public/salao.png" alt="Barbearia Sr. Dan" class="imagem-barbearia">
-  </div>
+      <!-- Coluna Direita (imagem) -->
+      <div class="coluna-direita">
+        <img 
+          id="faixada" 
+          src="./public/salao.png" 
+          alt="Fachada da Barbearia Sr. Dan" 
+          class="imagem-barbearia"
+        >
+      </div>
+
+    </div>
+  </section>
+  <div style="text-align:center; margin: 40px 20px;">
+  <a href="./avaliacoes/avaliacoes.html" style="
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #d4af37, #c49b2a);
+    color: #1c1c1c;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.3s;
+  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    ⭐ Veja as Avaliações dos Nossos Clientes
+  </a>
 </div>
+
+  <!-- ============================================
+       RODAPÉ
+       ============================================ -->
+  <footer class="rodape">
+    <p>&copy; 2026 Barbearia Sr. Dan — Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
 
 
 

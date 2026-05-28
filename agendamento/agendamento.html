@@ -1,185 +1,139 @@
-<link rel="stylesheet" href="./agendamento.css">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento — Barbearia Sr. Dan</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="agendamento.css">
+</head>
+<body>
 
-<nav id="menu" class="menu">
+  <!-- ============================================
+       MENU DE NAVEGAÇÃO
+       ============================================ -->
+  <nav id="menu" class="menu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../precos/precos.html">💰 Preços</a>
+    <a href="../avaliacoes/avaliacoes.html">⭐ Avaliações</a>
+    <a href="agendamento.html" class="ativo">📅 Agendamento</a>
+    <a href="../cadastro/cadastro.html">📝 Cadastro</a>
+    <a href="../perfil/perfil.html">👤 Perfil</a>
+    
+  </nav>
 
-   <a href="../index.html">Home</a>
-
-   <a href="../precos/precos.html">Preços</a>
-
-   <a href="./agendamento.html">Agendamento</a>
-
-   <a href="../cadastro/cadastro.html">Cadastro</a>
-
-</nav>
-
-<div class="container">
+  <!-- ============================================
+       CONTAINER PRINCIPAL
+       ============================================ -->
+  <div class="container">
 
     <!-- LADO ESQUERDO -->
-
     <div class="lado-esquerdo">
+      <div class="central">
 
-        <div class="central">
+        <!-- FORMULÁRIO -->
+        <form class="formulario" id="formAgendamento">
+          
+          <!-- Info do usuário logado -->
+          <div id="infoUsuario" style="text-align:center; margin-bottom:15px; color:#d4af37; font-size:1.1rem;"></div>
 
-            <!-- FORMULARIO -->
+          <h2>✂️ Agende seu atendimento</h2>
 
-            <!-- FORMULARIO -->
+          <!-- Horários de funcionamento -->
+          <div class="horario-agendamento">
+            <h3>🕐 Horários de funcionamento</h3>
+            <p><strong>Terça a Sexta:</strong> 10:00 - 20:00</p>
+            <p><strong>Sábado:</strong> 09:00 - 18:00</p>
+            <p><strong>Domingo e Segunda:</strong> Fechado</p>
+          </div>
 
-<form class="formulario">
+          <!-- Escolher dia -->
+          <label for="dia">📅 Escolha o dia:</label>
+          <select id="dia" onchange="mostrarHorarios()" required>
+            <option value="">Selecione um dia</option>
+            <option value="terca">Terça-feira</option>
+            <option value="quarta">Quarta-feira</option>
+            <option value="quinta">Quinta-feira</option>
+            <option value="sexta">Sexta-feira</option>
+            <option value="sabado">Sábado</option>
+          </select>
 
-    <h2>Agende seu atendimento</h2>
+          <!-- Widget de horários -->
+          <div id="horarios" class="horarios-container">
+            <p style="color:#888;">Selecione um dia para ver os horários</p>
+          </div>
 
-    <!-- HORARIOS DE FUNCIONAMENTO -->
+          <!-- Horário selecionado (input oculto) -->
+          <input type="hidden" id="horarioSelecionado" name="horarioSelecionado">
 
-    <div class="horario-agendamento">
+          <!-- Mensagem de feedback -->
+          <div id="mensagemAgendamento" style="display:none;"></div>
 
-        <h3>Horários disponíveis</h3>
+          <!-- Botão -->
+          <button type="submit">✅ Confirmar Agendamento</button>
+        </form>
 
-        <p>Terça-feira: 10:00 - 20:00</p>
-
-        <p>Quarta-feira: 10:00 - 20:00</p>
-
-        <p>Quinta-feira: 10:00 - 20:00</p>
-
-        <p>Sexta-feira: 10:00 - 20:00</p>
-
-        <p>Sábado: 09:00 - 18:00</p>
-
-        <p>Domingo: Fechado</p>
-
-    </div>
-
-    <!-- ESCOLHER DIA -->
-
-    <!-- ESCOLHER DIA -->
-
-<label>Escolha o dia</label>
-
-<select id="dia" onchange="mostrarHorarios()" required>
-
-    <option value="">Selecione</option>
-
-    <option value="terça">Terça-feira</option>
-
-    <option value="quarta">Quarta-feira</option>
-
-    <option value="quinta">Quinta-feira</option>
-
-    <option value="sexta">Sexta-feira</option>
-
-    <option value="sabado">Sábado</option>
-
-    <option value="domingo">Domingo</option>
-
-</select>
-
-<!-- WIDGET DE HORARIOS -->
-
-<div id="horarios" class="horarios-container"></div>
-
-<!-- HORARIO ESCOLHIDO -->
-
-<input 
-    type="hidden"
-    id="horarioSelecionado"
-    name="horarioSelecionado"
->
-
-<!-- BOTAO -->
-
-<button type="submit">
-
-    Confirmar Agendamento
-
-</button>
-
-</form>
-
-            <!-- REDE SOCIAL -->
-
-            <div class="social">
-
-                <h3 id="fontAlt">Siga-nos</h3>
-
-                <a href="https://www.instagram.com/daan_corrts/" target="_blank" class="social-link">
-
-                    <span>@daan_corrts</span>
-
-                </a>
-
-            </div>
-
+        <!-- Rede social -->
+        <div class="social">
+          <h3>📱 Siga-nos</h3>
+          <a href="https://www.instagram.com/daan_corrts/" target="_blank" class="social-link">
+            &#64;daan_corrts
+          </a>
         </div>
 
+      </div>
     </div>
 
     <!-- LADO DIREITO -->
-
     <div class="lado-direito">
 
-        <!-- ENDEREÇO -->
+      <!-- Endereço -->
+      <div class="endereco">
+        <h3>📍 Endereço</h3>
+        <p>Rua João Machado de Oliveira, 55 - Jardim Comercial</p>
+        <iframe 
+          src="https://www.google.com/maps?q=R.+João+Machado+de+Oliveira,+55,+Jardim+Comercial,+São+Paulo&output=embed"
+          width="100%" 
+          height="300"
+          style="border:0; border-radius:8px;"
+          loading="lazy">
+        </iframe>
+      </div>
 
-        <div class="endereco">
-
-            <h3>Endereço</h3>
-
-            <p>Rua João Machado de Oliveira, 55 - Jardim Comercial</p>
-
-            <iframe 
-                src="https://www.google.com/maps?q=R.+João+Machado+de+Oliveira,+55,+Jardim+Comercial,+São+Paulo&output=embed"
-                width="100%" 
-                height="300"
-                style="border:0;"
-                loading="lazy">
-            </iframe>
-
+      <!-- Preços -->
+      <div class="precos-container">
+        <h2>💰 Nossos Preços</h2>
+        <div class="tabela">
+          <div class="dias">
+            <h3>Terça a Quarta</h3>
+            <ul>
+              <li>Corte — <strong>R$35</strong></li>
+              <li>Barba — <strong>R$20</strong></li>
+              <li>Corte + Barba — <strong>R$55</strong></li>
+            </ul>
+          </div>
+          <div class="dias destaque">
+            <h3>Quinta a Domingo</h3>
+            <ul>
+              <li>Corte — <strong>R$45</strong></li>
+              <li>Barba — <strong>R$30</strong></li>
+              <li>Corte + Barba — <strong>R$65</strong></li>
+            </ul>
+          </div>
         </div>
-
-        <!-- PREÇOS -->
-
-        <div class="precos-container">
-
-            <h2>Nossos Preços</h2>
-
-            <div class="tabela">
-
-                <div class="dias">
-
-                    <h3>De terça a quarta-feira</h3>
-
-                    <ul>
-
-                        <li>Corte — R$35</li>
-
-                        <li>Barba — R$20</li>
-
-                        <li>Corte + Barba — R$55</li>
-
-                    </ul>
-
-                </div>
-
-                <div class="dias">
-
-                    <h3>De quinta-feira a domingo</h3>
-
-                    <ul>
-
-                        <li>Corte — R$45</li>
-
-                        <li>Barba — R$30</li>
-
-                        <li>Corte + Barba — R$65</li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
+      </div>
 
     </div>
+  </div>
 
-</div>
+  <!-- ============================================
+       RODAPÉ
+       ============================================ -->
+  <footer class="rodape">
+    <p>&copy; 2026 Barbearia Sr. Dan — Todos os direitos reservados</p>
+  </footer>
 
-<script src="../js/agendamento.js"></script>
+  <!-- SCRIPTS -->
+  <script src="../js/agendamento.js"></script>
+</body>
+</html>

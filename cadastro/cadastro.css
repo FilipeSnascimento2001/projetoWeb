@@ -1,202 +1,161 @@
-body{
-    margin:0;
-    font-family:'Segoe UI', Arial, sans-serif;
-    background:#f3f3f3;
+/* ============================================
+   C A D A S T R O   -   P R E M I U M
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* MENU */
-
-.menu{
-
-    font-family:'Segoe UI', Arial, sans-serif;
-
-    color:#000;
-
-    display:flex;
-
-    justify-content:space-evenly;
-
-    align-items:center;
-
-    padding:20px 40px;
-
-    background:#fff;
-
-    border-radius:12px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-
-    margin-bottom:30px;
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1c1c1c 50%, #0f0f0f 100%);
+  color: #fff;
+  min-height: 100vh;
 }
 
-.menu a{
-
-    color:#000;
-
-    text-decoration:none;
-
-    font-size:1.1rem;
-
-    transition:0.3s;
+/* ============================================
+   CONTAINER
+   ============================================ */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  min-height: 75vh;
+  padding: 40px 20px;
+  flex-wrap: wrap;
 }
 
-.menu a:hover{
-
-    color:#d4af37;
-
-    transform:scale(1.1);
+/* ============================================
+   FORMULÁRIOS
+   ============================================ */
+.formulario {
+  width: 380px;
+  padding: 40px 35px;
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
 }
 
-/* CONTAINER PRINCIPAL */
-
-.container{
-
-    display:flex;
-
-    justify-content:space-evenly;
-
-    align-items:center;
-
-    min-height:80vh;
-
-    padding:20px;
-
-    gap:50px;
+.formulario:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+  box-shadow: 
+    0 25px 50px rgba(0,0,0,0.5),
+    0 0 30px rgba(212, 175, 55, 0.1);
 }
 
-/* LADO ESQUERDO */
-
-.lado-esquerdo{
-
-    width:50%;
-
-    display:flex;
-
-    justify-content:flex-end;
-
-    align-items:center;
+.formulario h2 {
+  text-align: center;
+  color: #d4af37;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  position: relative;
 }
 
-/* LADO DIREITO */
-
-.lado-direito{
-
-    width:50%;
-
-    display:flex;
-
-    justify-content:flex-start;
-
-    align-items:center;
+.formulario h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #d4af37;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
-/* FORMULARIOS */
-
-.formulario{
-
-    width:350px;
-
-    height:500px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    gap:15px;
-
-    padding:30px;
-
-    background:white;
-
-    border-radius:12px;
-
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
-
-    transition:0.3s;
+/* ============================================
+   INPUTS
+   ============================================ */
+.formulario input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 15px;
+  background: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.formulario:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+.formulario input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
 }
 
-.formulario h2{
-
-    text-align:center;
-
-    margin-bottom:10px;
-
-    color:#d4af37;
+.formulario input::placeholder {
+  color: #777;
 }
 
-/* INPUTS */
-
-.formulario input,
-.formulario textarea{
-
-    padding:12px;
-
-    border:1px solid #ccc;
-
-    border-radius:8px;
-
-    outline:none;
-
-    font-size:15px;
-
-    transition:0.3s;
-
-    background:#fafafa;
+/* ============================================
+   BOTÃO
+   ============================================ */
+.formulario button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #d4af37, #c49b2a);
+  color: #1c1c1c;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.formulario input:focus,
-.formulario textarea:focus{
-
-    border-color:#007bff;
-
-    box-shadow:0 0 8px rgba(0,123,255,0.2);
-
-    background:white;
+.formulario button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
 
-/* BOTAO */
-
-.formulario button{
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#007bff;
-
-    color:white;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    transition:.3s;
+/* ============================================
+   MENSAGENS
+   ============================================ */
+#mensagemCadastro,
+#mensagemLogin {
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 10px 0;
 }
 
-.formulario button:hover{
-
-    transform:scale(1.02);
-
-    background:#0066d6;
+.sucesso {
+  background: rgba(39, 174, 96, 0.2) !important;
+  color: #2ecc71 !important;
+  border: 1px solid #27ae60 !important;
+  display: block !important;
 }
 
-/* RESPONSIVO */
+.erro {
+  background: rgba(231, 76, 60, 0.2) !important;
+  color: #e74c3c !important;
+  border: 1px solid #c0392b !important;
+  display: block !important;
+}
 
-@media(max-width:900px){
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 30px;
+  }
 
-    .container{
-
-        flex-direction:column;
-    }
+  .formulario {
+    width: 100%;
+    max-width: 400px;
+  }
 }

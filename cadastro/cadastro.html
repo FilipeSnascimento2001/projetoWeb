@@ -1,85 +1,99 @@
-<link rel="stylesheet" href="cadastro.css">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro — Barbearia Sr. Dan</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
 
-<nav id="menu" class="menu">
-   <a href="../index.html">Home</a>
-   <a href="../precos/precos.html">Preços</a>
-   <a href="../agendamento/agendamento.html">Agendamento</a>
-   <a href="../cadastro/cadastro.html">Cadastro</a>
-</nav>
+  <!-- MENU -->
+  <nav id="menu" class="menu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../precos/precos.html">💰 Preços</a>
+    <a href="../avaliacoes/avaliacoes.html">⭐ Avaliações</a>
+    <a href="../agendamento/agendamento.html">📅 Agendamento</a>
+    <a href="cadastro.html" class="ativo">📝 Cadastro</a>
+    <a href="../perfil/perfil.html">👤 Perfil</a>
+    
+  </nav>
 
-<div class="container">
+  <div class="container">
 
     <!-- CADASTRO -->
-
     <div class="lado-esquerdo">
+      <form class="formulario" id="formCadastro">
+        <h2>📝 Cadastre-se</h2>
 
-        <form class="formulario">
+        <input 
+          type="text"
+          name="nome"
+          placeholder="Digite seu nome"
+          required
+          minlength="3"
+        />
 
-            <h2 id="fontAlt">
-                Cadastre-se
-            </h2>
+        <input 
+          type="email"
+          name="email"
+          placeholder="Digite seu email"
+          required
+        />
 
-            <input 
-                type="text"
-                name="nome"
-                placeholder="Digite seu nome"
-                required
-            >
+        <input 
+          type="tel"
+          name="telefone"
+          placeholder="Informe seu Nº de celular"
+        />
 
-            <input 
-                type="email"
-                name="email"
-                placeholder="Digite seu email"
-                required
-            >
+        <input 
+          type="password"
+          name="senha"
+          placeholder="Crie uma senha"
+          required
+          minlength="4"
+        />
 
-            <input 
-                type="tel"
-                name="telefone"
-                placeholder="Informe seu Nº de celular"
-                required
-            >
+        <div id="mensagemCadastro" style="display:none;"></div>
 
-            <button type="submit">
-                Realizar Cadastro
-            </button>
-
-        </form>
-
+        <button type="submit">✅ Realizar Cadastro</button>
+      </form>
     </div>
 
     <!-- LOGIN -->
-
     <div class="lado-direito">
+      <form class="formulario" id="formLogin">
+        <h2>🔐 Login</h2>
 
-        <form class="formulario">
+        <input 
+          type="email"
+          name="loginEmail"
+          placeholder="Digite seu email"
+          required
+        />
 
-            <h2 id="fontAlt">
-                Login
-            </h2>
+        <input 
+          type="password"
+          name="loginSenha"
+          placeholder="Digite sua senha"
+          required
+        />
 
-            <input 
-                type="email"
-                name="loginEmail"
-                placeholder="Digite seu email"
-                required
-            >
+        <div id="mensagemLogin" style="display:none;"></div>
 
-            <input 
-                type="password"
-                name="senha"
-                placeholder="Digite sua senha"
-                required
-            >
-
-            <button type="submit">
-                Entrar
-            </button>
-
-        </form>
-
+        <button type="submit">🚪 Entrar</button>
+      </form>
     </div>
 
-</div>
+  </div>
 
-<script src="../js/scripts.js"></script>
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2026 Barbearia Sr. Dan — Todos os direitos reservados</p>
+  </footer>
+
+  <script src="../js/cadastro.js"></script>
+</body>
+</html>

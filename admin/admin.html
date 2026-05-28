@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin — Barbearia Sr. Dan</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- MENU -->
+  <nav id="menu" class="menu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../precos/precos.html">💰 Preços</a>
+    <a href="../avaliacoes/avaliacoes.html">⭐ Avaliações</a>
+    <a href="../agendamento/agendamento.html">📅 Agendamento</a>
+    <a href="../cadastro/cadastro.html">📝 Cadastro</a>
+    <a href="admin.html" class="ativo">🔧 Admin</a>
+    <a href="#" onclick="logout()" style="color:#e74c3c;">🚪 Sair</a>
+    <a href="../perfil/perfil.html">👤 Perfil</a>
+  </nav>
+
+  <div class="admin-container">
+    <h1>🔧 Painel Administrativo</h1>
+
+    <!-- ✅ SEÇÃO: HORÁRIOS DISPONÍVEIS -->
+    <div class="secao-admin">
+      <h2>🕐 Definir Horários Disponíveis</h2>
+      
+      <div class="config-horarios">
+        <div class="config-dia">
+          <h3>Terça a Sexta-feira</h3>
+          <label>Início:</label>
+          <input type="number" id="inicioSemana" value="10" min="0" max="23">
+          <label>Fim:</label>
+          <input type="number" id="fimSemana" value="20" min="0" max="23">
+        </div>
+
+        <div class="config-dia">
+          <h3>Sábado</h3>
+          <label>Início:</label>
+          <input type="number" id="inicioSabado" value="9" min="0" max="23">
+          <label>Fim:</label>
+          <input type="number" id="fimSabado" value="18" min="0" max="23">
+        </div>
+
+        <button onclick="salvarHorarios()">💾 Salvar Horários</button>
+        <p id="msgHorarios" class="msg-feedback"></p>
+      </div>
+    </div>
+
+    <!-- ✅ SEÇÃO: AGENDAMENTOS -->
+    <div class="secao-admin">
+      <h2>📋 Agendamentos</h2>
+      
+      <div class="filtros">
+        <button onclick="filtrarAgendamentos('todos')" class="btn-filtro ativo">Todos</button>
+        <button onclick="filtrarAgendamentos('pendente')" class="btn-filtro">Pendentes</button>
+        <button onclick="filtrarAgendamentos('concluido')" class="btn-filtro">Concluídos</button>
+      </div>
+
+      <div id="listaAgendamentos" class="lista-agendamentos">
+        <p style="color:#888;">Nenhum agendamento encontrado.</p>
+      </div>
+    </div>
+
+    <!-- ✅ SEÇÃO: CLIENTES -->
+    <div class="secao-admin">
+      <h2>👥 Clientes Cadastrados</h2>
+      <div id="listaClientes" class="lista-clientes">
+        <p style="color:#888;">Nenhum cliente cadastrado.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2026 Barbearia Sr. Dan — Todos os direitos reservados</p>
+  </footer>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>

@@ -1,146 +1,207 @@
+// agendamento.js — SÓ USUÁRIO LOGADO PODE AGENDAR
+
+// ============================================
+// VERIFICA LOGIN
+// ============================================
+const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+// ✅ Se NÃO estiver logado, redireciona para cadastro/login
+if (!usuarioLogado) {
+  alert("⚠️ Faça login ou cadastre-se para agendar um horário!");
+  window.location.href = "../cadastro/cadastro.html";
+}
+
+// ✅ Se for ADMIN, redireciona para o painel
+if (usuarioLogado && usuarioLogado.tipo === "admin") {
+  window.location.href = "../admin/admin.html";
+}
+
+// ============================================
+// LOCAL STORAGE
+// ============================================
+let agendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
+
+// ============================================
+// MOSTRAR NOME DO USUÁRIO (OPCIONAL)
+// ============================================
+if (usuarioLogado) {
+  // Adiciona o nome do usuário no formulário (se existir o elemento)
+  const infoUsuario = document.getElementById("infoUsuario");
+  if (infoUsuario) {
+    infoUsuario.innerHTML = `👤 Logado como: <strong>${usuarioLogado.nome}</strong>`;
+  }
+}
+
+// ============================================
+// FORMULÁRIO
+// ============================================
 const form = document.querySelector(".formulario");
+const mensagemDiv = document.getElementById("mensagemAgendamento");
 
-/* LOCAL STORAGE */
+if (form) {
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-let agendamentos = JSON.parse(
-    localStorage.getItem("agendamentos")
-) || [];
+    // Pega os valores
+    const diaSelect = document.getElementById("dia");
+    const dia = diaSelect.options[diaSelect.selectedIndex].text;
+    const diaValor = diaSelect.value;
+    const horario = document.getElementById("horarioSelecionado").value;
 
-/* AGENDAR */
+    // Limpa mensagens anteriores
+    mensagemDiv.style.display = "none";
+    mensagemDiv.className = "";
 
-if(form){
+    // ✅ VALIDAÇÃO
+    if (diaValor === "") {
+      mostrarMensagem("⚠️ Escolha um dia!", "erro");
+      return;
+    }
 
-    form.addEventListener("submit", function(event){
+    if (horario === "") {
+      mostrarMensagem("⚠️ Escolha um horário!", "erro");
+      return;
+    }
 
-        event.preventDefault();
+    // ✅ VERIFICA SE O HORÁRIO JÁ ESTÁ OCUPADO
+    const horarioOcupado = agendamentos.some(
+      (a) => a.diaValor === diaValor && a.horario === horario && !a.concluido
+    );
 
-        const dia = document.getElementById("dia").value;
+    if (horarioOcupado) {
+      mostrarMensagem("❌ Este horário já está ocupado! Escolha outro.", "erro");
+      return;
+    }
 
-        const horario = document.getElementById(
-            "horarioSelecionado"
-        ).value;
+    // ✅ NOVO AGENDAMENTO (com dados do usuário logado)
+    const novoAgendamento = {
+      id: Date.now(),
+      clienteNome: usuarioLogado.nome,
+      clienteEmail: usuarioLogado.email,
+      dia: dia,
+      diaValor: diaValor,
+      horario: horario,
+      data: new Date().toLocaleString("pt-BR"),
+      concluido: false,
+    };
 
-        const mensagem = document.querySelector(
-            'textarea[name="mensagem"]'
-        ).value;
+    // ✅ SALVAR
+    agendamentos.push(novoAgendamento);
+    localStorage.setItem("agendamentos", JSON.stringify(agendamentos));
 
-        // VALIDAR
+    // ✅ FEEDBACK
+    mostrarMensagem(
+      `✅ Agendamento confirmado!<br>📅 ${dia}<br>🕐 ${horario}`,
+      "sucesso"
+    );
 
-        if(dia === ""){
+    // Limpa formulário
+    form.reset();
+    document.getElementById("horarios").innerHTML =
+      '<p style="color:#888;">Selecione um dia para ver os horários</p>';
+    document.getElementById("horarioSelecionado").value = "";
 
-            alert("Escolha um dia!");
-
-            return;
-        }
-
-        if(horario === ""){
-
-            alert("Escolha um horário!");
-
-            return;
-        }
-
-        /* NOVO AGENDAMENTO */
-
-        const novoAgendamento = {
-
-            dia,
-            horario,
-            mensagem
-        };
-
-        /* SALVAR */
-
-        agendamentos.push(novoAgendamento);
-
-        localStorage.setItem(
-            "agendamentos",
-            JSON.stringify(agendamentos)
-        );
-
-        alert(
-            `Agendamento confirmado!
-            
-Dia: ${dia}
-Horário: ${horario}`
-        );
-
-        form.reset();
-
-        document.getElementById(
-            "horarios"
-        ).innerHTML = "";
-
-        document.getElementById(
-            "horarioSelecionado"
-        ).value = "";
-    });
+    setTimeout(() => {
+      mensagemDiv.style.display = "none";
+    }, 3000);
+  });
 }
 
-/* MOSTRAR HORARIOS */
-
-function mostrarHorarios(){
-
-    const dia = document.getElementById("dia").value;
-
-    const horariosDiv = document.getElementById("horarios");
-
-    horariosDiv.innerHTML = "";
-
-    // DOMINGO
-
-    if(dia === "domingo"){
-
-        horariosDiv.innerHTML = `
-            <p class="fechado">
-                Domingo: Fechado
-            </p>
-        `;
-
-        return;
-    }
-
-    let inicio = 10;
-    let fim = 18;
-
-    // SABADO
-
-    if(dia === "sabado"){
-
-        inicio = 9;
-        fim = 18;
-    }
-
-    // GERAR HORARIOS
-
-    for(let hora = inicio; hora <= fim; hora++){
-
-        horariosDiv.innerHTML += `
-
-            <button 
-                type="button"
-                class="horario-btn"
-                onclick="selecionarHorario(this, '${hora}:00')"
-            >
-                ${hora}:00
-            </button>
-
-        `;
-    }
+// ============================================
+// MOSTRAR MENSAGEM DE FEEDBACK
+// ============================================
+function mostrarMensagem(texto, tipo) {
+  mensagemDiv.innerHTML = texto;
+  mensagemDiv.className = tipo;
+  mensagemDiv.style.display = "block";
 }
 
-/* SELECIONAR HORARIO */
+// ============================================
+// MOSTRAR HORÁRIOS DISPONÍVEIS
+// ============================================
+function mostrarHorarios() {
+  const dia = document.getElementById("dia").value;
+  const horariosDiv = document.getElementById("horarios");
 
-function selecionarHorario(botao, horario){
+  horariosDiv.innerHTML = "";
+  document.getElementById("horarioSelecionado").value = "";
 
-    document.querySelectorAll(".horario-btn").forEach(btn => {
+  if (dia === "domingo" || dia === "") {
+    horariosDiv.innerHTML = `
+      <p style="color:#e74c3c; font-weight:bold; width:100%; text-align:center;">
+        🚫 Domingo: Fechado
+      </p>
+    `;
+    return;
+  }
 
-        btn.classList.remove("ativo");
-    });
+  // ✅ USA CONFIGURAÇÕES DO ADMIN
+  const config = JSON.parse(localStorage.getItem("horariosConfig")) || {
+    inicioSemana: 10,
+    fimSemana: 20,
+    inicioSabado: 9,
+    fimSabado: 18,
+  };
 
-    botao.classList.add("ativo");
+  let inicio, fim;
 
-    document.getElementById(
-        "horarioSelecionado"
-    ).value = horario;
+  if (dia === "sabado") {
+    inicio = config.inicioSabado;
+    fim = config.fimSabado;
+  } else {
+    inicio = config.inicioSemana;
+    fim = config.fimSemana;
+  }
+
+  // ✅ GERA BOTÕES DE HORÁRIOS
+  for (let hora = inicio; hora <= fim; hora++) {
+    const horarioStr = `${hora}:00`;
+
+    // Verifica se já está ocupado (e não concluído)
+    const ocupado = agendamentos.some(
+      (a) => a.diaValor === dia && a.horario === horarioStr && !a.concluido
+    );
+
+    if (!ocupado) {
+      horariosDiv.innerHTML += `
+        <button 
+          type="button"
+          class="horario-btn"
+          onclick="selecionarHorario(this, '${horarioStr}')"
+        >
+          ${horarioStr}
+        </button>
+      `;
+    } else {
+      horariosDiv.innerHTML += `
+        <button 
+          type="button"
+          class="horario-btn ocupado"
+          disabled
+        >
+          ${horarioStr} 🔒
+        </button>
+      `;
+    }
+  }
+
+  if (horariosDiv.innerHTML === "") {
+    horariosDiv.innerHTML = `
+      <p style="color:#e74c3c; width:100%; text-align:center;">
+        😕 Todos horários ocupados neste dia!
+      </p>
+    `;
+  }
+}
+
+// ============================================
+// SELECIONAR HORÁRIO
+// ============================================
+function selecionarHorario(botao, horario) {
+  document.querySelectorAll(".horario-btn").forEach((btn) => {
+    btn.classList.remove("ativo");
+  });
+
+  botao.classList.add("ativo");
+  document.getElementById("horarioSelecionado").value = horario;
 }

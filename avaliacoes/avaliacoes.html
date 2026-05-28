@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliações — Barbearia Sr. Dan</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="avaliacoes.css">
+</head>
+<body>
+
+  <!-- MENU -->
+  <nav id="menu" class="menu">
+    <a href="../index.html">🏠 Home</a>
+    <a href="../precos/precos.html">💰 Preços</a>
+    <a href="avaliacoes.html" class="ativo">⭐ Avaliações</a>
+    <a href="../agendamento/agendamento.html">📅 Agendamento</a>
+    <a href="../cadastro/cadastro.html">📝 Cadastro</a>
+    <a href="../perfil/perfil.html">👤 Perfil</a>
+    
+    <a href="#" onclick="logout()" style="color:#e74c3c;">🚪 Sair</a>
+  </nav>
+
+  <div class="avaliacoes-container">
+
+    <!-- CABEÇALHO -->
+    <div class="header-avaliacoes">
+      <h1>⭐ Avaliações dos Clientes</h1>
+      <div class="media-geral">
+        <div class="estrelas-grandes" id="mediaEstrelas">★★★★★</div>
+        <span class="nota-media" id="notaMedia">5.0</span>
+        <span class="total-avaliacoes" id="totalAvaliacoes">(0 avaliações)</span>
+      </div>
+    </div>
+
+    <!-- DEIXAR AVALIAÇÃO (só para usuários logados) -->
+    <div class="secao-avaliar" id="secaoAvaliar">
+      <h2>📝 Deixe sua Avaliação</h2>
+      <form id="formAvaliacao">
+        <!-- Estrelas clicáveis -->
+        <div class="estrelas-selecao">
+          <span class="estrela" data-valor="1" onclick="selecionarEstrela(1)">☆</span>
+          <span class="estrela" data-valor="2" onclick="selecionarEstrela(2)">☆</span>
+          <span class="estrela" data-valor="3" onclick="selecionarEstrela(3)">☆</span>
+          <span class="estrela" data-valor="4" onclick="selecionarEstrela(4)">☆</span>
+          <span class="estrela" data-valor="5" onclick="selecionarEstrela(5)">☆</span>
+        </div>
+        <input type="hidden" id="notaAvaliacao" value="0">
+
+        <textarea 
+          id="mensagemAvaliacao" 
+          placeholder="Conte como foi sua experiência na barbearia..."
+          rows="4"
+          required
+          minlength="10"
+        ></textarea>
+
+        <div id="msgAvaliacao" class="msg-feedback"></div>
+        <button type="submit">✅ Enviar Avaliação</button>
+      </form>
+    </div>
+
+    <!-- LISTA DE AVALIAÇÕES -->
+    <div class="secao-avaliacoes">
+      <h2>💬 O que estão dizendo</h2>
+      
+      <!-- Filtros -->
+      <div class="filtros-avaliacoes">
+        <button class="btn-filtro ativo" onclick="filtrarAvaliacoes('todas')">Todas</button>
+        <button class="btn-filtro" onclick="filtrarAvaliacoes('5')">⭐⭐⭐⭐⭐</button>
+        <button class="btn-filtro" onclick="filtrarAvaliacoes('4')">⭐⭐⭐⭐</button>
+        <button class="btn-filtro" onclick="filtrarAvaliacoes('3')">⭐⭐⭐</button>
+        <button class="btn-filtro" onclick="filtrarAvaliacoes('recentes')">Mais Recentes</button>
+      </div>
+
+      <!-- Grid de avaliações -->
+      <div class="grid-avaliacoes" id="gridAvaliacoes">
+        <p style="color:#888; text-align:center; grid-column: 1/-1;">
+          Nenhuma avaliação ainda. Seja o primeiro!
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2026 Barbearia Sr. Dan — Todos os direitos reservados</p>
+  </footer>
+
+  <script src="../js/avaliacoes.js"></script>
+</body>
+</html>

@@ -1,111 +1,158 @@
-.precos-container {
-  text-align: center;
+/* ============================================
+   P R E Ç O S   -   P R E M I U M
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1c1c1c 50%, #0f0f0f 100%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+.precos-container {
+  max-width: 1000px;
   margin: 40px auto;
-  max-width: 900px;
+  padding: 50px 30px;
+  text-align: center;
+  background: linear-gradient(145deg, #1e1e1e, #252525);
+  border: 1px solid #333;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
 .precos-container h2 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 30px;
-  border-bottom: 2px solid #d4af37; /* dourado */
-  display: inline-block;
-  padding-bottom: 5px;
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 15px;
+  position: relative;
 }
 
+.precos-container h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #d4af37;
+  margin: 10px auto 30px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   TABELA
+   ============================================ */
 .tabela {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .dias {
-  background-color: #1c1c1c; /* fundo escuro elegante */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  color: #fff;
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 15px;
   width: 300px;
-  transition: transform 0.3s ease;
+  color: #fff;
+  transition: all 0.3s ease;
+  border: 1px solid #2a2a2a;
+}
+
+.dias.destaque {
+  border-color: #d4af37;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
 .dias:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  border-color: #d4af37;
 }
 
 .dias h3 {
-  margin-bottom: 15px;
-  color: #d4af37; /* dourado */
-  font-size: 1.3rem;
+  color: #d4af37;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  padding-bottom: 10px;
   border-bottom: 1px solid #d4af37;
-  padding-bottom: 5px;
 }
 
 .dias ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .dias li {
-  margin: 8px 0;
-  font-size: 1.1rem;
-  color: #f0f0f0;
+  margin: 14px 0;
+  font-size: 1.2rem;
+  color: #ddd;
 }
 
 .dias li::before {
-  content: "✂ "; /* ícone estilizado */
+  content: "✂ ";
   color: #d4af37;
 }
 
-body{
-    margin:0;
-    font-family:'Segoe UI', Arial, sans-serif;
-    background:#f3f3f3;
+.dias strong {
+  color: #d4af37;
+  font-size: 1.4rem;
 }
 
-/* MENU */
-
-.menu{
-
-    font-family:'Segoe UI', Arial, sans-serif;
-
-    color:#000;
-
-    display:flex;
-
-    justify-content:space-evenly;
-
-    align-items:center;
-
-    padding:20px 40px;
-
-    background:#fff;
-
-    border-radius:12px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-
-    margin-bottom:30px;
+/* ============================================
+   BOTÃO
+   ============================================ */
+.btn-agendar {
+  display: inline-block;
+  padding: 16px 50px;
+  background: linear-gradient(135deg, #d4af37, #c49b2a);
+  color: #1c1c1c;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.menu a{
-
-    color:#000;
-
-    text-decoration:none;
-
-    font-size:1.1rem;
-
-    transition:0.3s;
+.btn-agendar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
 
-.menu a:hover{
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+@media (max-width: 750px) {
+  .precos-container {
+    padding: 30px 15px;
+    margin: 20px 10px;
+  }
 
-    color:#d4af37;
+  .precos-container h2 {
+    font-size: 2rem;
+  }
 
-    transform:scale(1.1);
+  .tabela {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .dias {
+    width: 100%;
+    max-width: 350px;
+  }
 }
